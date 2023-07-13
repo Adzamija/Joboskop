@@ -1,0 +1,164 @@
+{% extends "stud_poslovi/layout.html" %}
+{% load static %}
+{% block body %}
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+                            {% if category %}
+							<h1 class="text-white">
+								{{ category }}			
+							</h1>	
+							<p class="text-white link-nav"><a href="{% url 'index' %}">Naslovna Stranica </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#">Poslovi: {{ category }}</a></p>
+                            {% elif location %}
+                            <h1 class="text-white">
+								{{ location }}			
+							</h1>	
+							<p class="text-white link-nav"><a href="{% url 'index' %}">Naslovna Stranica </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#">Poslovi: {{ location }}</a></p>
+                            {% elif search %}
+                            <h1 class="text-white">
+								Rezultati pretrage		
+							</h1>	
+							{% elif type %}
+							<h1 class="text-white">
+								{{ type }}	
+							</h1>	
+							<p class="text-white link-nav"><a href="{% url 'index' %}">Naslovna Stranica </a>  <span class="lnr lnr-arrow-right"></span>  <a href="#">Poslovi: {{ type }}</a></p>
+                            {% endif %}
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+			
+			<!-- Start post Area -->
+            <section class="post-area section-gap">
+				<div class="container">
+					<div class="row justify-content-center d-flex">
+						<div class="col-lg-8 post-list">
+                            {% if empty %}
+                            <div class="section-top-border">
+                                <h3 class="mb-30">Trenutno ne postoji nijedan posao u ovoj kategoriji.</h3>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <blockquote class="generic-blockquote">
+                                            "Život je nepredvidiv put koji nam često donosi iznenađenja i prilike koje možda nismo ni očekivali. Ponekad, kroz otvaranje vrata drugim mogućnostima, možemo otkriti strast i ljubav prema nečemu što nikada nismo ni pomislili da bismo mogli voljeti. Dajte sebi slobodu da istražujete, da se otvorite novim iskustvima i dozvolite da se vaš pogled na budućnost mijenja, jer ne morate raditi samo ono što želite - možete voljeti i ono što tek trebate otkriti."
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            {% elif empty_location %}
+                            <div class="section-top-border">
+                                <h3 class="mb-30">Trenutno ne postoji nijedan posao u ovom gradu.</h3>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <blockquote class="generic-blockquote">
+                                            "Život je nepredvidiv put koji nam često donosi iznenađenja i prilike koje možda nismo ni očekivali. Ponekad, kroz otvaranje vrata drugim mogućnostima, možemo otkriti strast i ljubav prema nečemu što nikada nismo ni pomislili da bismo mogli voljeti. Dajte sebi slobodu da istražujete, da se otvorite novim iskustvima i dozvolite da se vaš pogled na budućnost mijenja, jer ne morate raditi samo ono što želite - možete voljeti i ono što tek trebate otkriti."
+                                        </blockquote>
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+							{% for job in jobs %}
+							<div class="single-post d-flex flex-row">
+								<!-- <div class="thumb" style="margin-right: 10px;">
+									<img src="{{ job.image }}" alt="" style="width: 100px; height: 100px;">
+								</div> -->
+								<div class="details">
+									<div class="title d-flex flex-row justify-content-between" style="margin-right: 5rem">
+										<div class="titles">
+											<a href="{% url 'job' job.id %}"><h4>{{ job.title|safe }}</h4></a>
+											<h6></h6>					
+										</div>
+										<ul class="btns">
+											<li><a href="#">Prijava</a></li>
+										</ul>
+									</div>
+									<p>
+										{{ job.short|safe }}
+									</p>
+									<h5>Tip posla: {{ job.type }}</h5>
+									<p class="address"><span class="lnr lnr-map"></span> {{ job.location }} </p>
+									<p class="address"><span class="lnr lnr-database"></span> Po dogovoru</p>
+								</div>
+							</div>
+							{% endfor %}
+                            {% endif %}
+						</div>
+						<div class="col-lg-4 sidebar">
+							<div class="single-slidebar">
+								<h4>Lokacija</h4>
+								<ul class="cat-list">
+									<li><a class="justify-content-between d-flex" href="{% url 'location' 'Sarajevo' %}"><p>Sarajevo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Mostar' %}"><p>Mostar</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Tuzla' %}"><p>Tuzla</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Zenica' %}"><p>Zenica</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Banja Luka' %}"><p>Banja Luka</p><span></span></a></li></a></li>
+
+								</ul>
+							</div>
+
+							<div class="single-slidebar">
+								<h4>Kategorije</h4>
+								<ul class="cat-list">
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Tehnologija' %}"><p>Tehnologija</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Novinarstvo' %}"><p>Novinarstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Vlada' %}"><p>Vlada</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Medicina' %}"><p>Medicina</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Ugostiteljstvo' %}"><p>Ugostiteljstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Razvoj softvera' %}"><p>Razvoj softvera</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Računovodstvo' %}"><p>Računovodstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Marketing' %}"><p>Marketing</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Ostalo' %}"><p>Ostalo</p><span></span></a></li>
+								</ul>
+							</div>
+
+							<div class="single-slidebar">
+								<h4>Blogovi sa savjetima</h4>
+								<div class="blog-list">
+									{% for blog in blogs %}
+									<div class="single-blog " style="background:#000 url(static/stud_poslovi/img/blog1.jpg);">
+										<a href="{% url 'blog' blog.id %}"><h4>{{ blog.title }}<br></h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												{{ blog.timestamp }}
+											</p>
+										</div>
+									</div>	
+									{% endfor %}																	
+								</div>
+							</div>							
+
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End post Area -->
+
+			<!-- Start callto-action Area -->
+			<section class="callto-action-area section-gap" id="join">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content col-lg-9">
+							<div class="title text-center">
+								<h1 class="mb-10 text-white">Nudite studentima priliku za radno iskustvo! Objavite oglas za posao i pojačajte svoj tim!</h1>
+								<p class="text-white">Ako vam je potrebna dodatna radna snaga ili pomoć u obliku studenata za različite poslove, objavite svoj oglas za posao kako biste pružili priliku talentiranim i motiviranim studentima da steknu radno iskustvo i doprinesu vašem timu.</p>
+								<a class="primary-btn" href="#" onclick="openMailApp()">Zakažite sastanak</a>
+							</div>
+						</div>
+					</div>	
+				</div>	
+			</section>
+			<script>
+				function openMailApp() {
+					var email = "adzamija@icloud.com"; 
+					var subject = "Zahtjev za sastanak/objavu"; 
+					var body = "Poštovani,\n\n Hvala vam što ste izrazili interes za objavljivanje vaših poslova na našoj web stranici. Cijenimo vaše povjerenje i želimo vam pomoći da promovirate svoje poslovne aktivnosti na našoj platformi.\n\nKako bismo započeli proces objave vaših poslova, molimo vas da nam pružite sljedeće informacije:\n1.Naziv firme/organizacije: \n2. Opis firme/organizacije: \n3. Lokacija firme/organizacije: \n4. Kontakt osoba (ime i prezime):\n5. E-adresa za kontakt: \n6. Broj telefona: \n7. Web stranica firme/organizacije (ako postoji): \n\nMolimo vas da nam odgovorite s gore navedenim podacima kako bismo mogli pokrenuti proces objave vaših poslova. Nakon što primimo vaše informacije, naš tim će pregledati vaše poslove i stupiti u kontakt s vama kako bismo razgovarali o daljnjim detaljima. \n\nAko imate dodatna pitanja ili trebate više informacija, slobodno nas kontaktirajte putem ovog e-maila ili na broj telefona naveden u potpisu.\n\nUnaprijed hvala na suradnji!"; 
+					var mailtoUrl = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+					window.location.href = mailtoUrl;
+				}
+				</script>
+
+{% endblock %}

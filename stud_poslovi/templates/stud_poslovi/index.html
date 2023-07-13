@@ -1,0 +1,319 @@
+{% extends "stud_poslovi/layout.html" %} 
+{% load static %}
+{% block body %}
+    			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row fullscreen d-flex align-items-center justify-content-center">
+						<div class="banner-content col-lg-12">
+							<h1 class="text-white">
+								<span>Otvori vrata uspjeha: </span> Pronađi idealan studentski posao!			
+							</h1>	
+							<form action="{% url 'search' %}" method="post">
+								{% csrf_token %}
+								<div class="row justify-content-center form-wrap">
+									<div class="col-lg-10 form-cols">
+										<input type="text" class="form-control" name="search" placeholder="Šta tražite?">
+									</div>									
+									<div class="col-lg-2 form-cols">
+									    <button type="submit" class="btn btn-info">
+									      <span class="lnr lnr-magnifier"></span> Pretraži
+									    </button>
+									</div>								
+								</div>
+							</form>	
+							<p class="text-white"> <span>Pretraži po oznakama:</span> Tehnologija, Biznis, Savjetovanje, IT kompanija, Dizajn, Razvoj</p>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+
+			<!-- Start features Area -->
+			<section class="features-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-6">
+							<div class="single-feature">
+								<h4>Pretraga</h4>
+								<p>
+									Istražite studentske poslove i započnite svoju karijeru.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="single-feature">
+								<h4>Podnošenje prijave</h4>
+								<p>
+									Iskoristite priliku i podnesite prijave za studentske poslove.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="single-feature">
+								<h4>Zarada</h4>
+								<p>
+									Iskoristite priliku i zaradite kroz tražene studentske poslove!
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-6">
+							<div class="single-feature">
+								<h4>Iskustvo</h4>
+								<p>
+									Neprocjenjivo iskustvo kroz studentske poslove.
+								</p>
+							</div>
+						</div>																		
+					</div>
+				</div>	
+			</section>
+			<!-- End features Area -->
+			
+			<!-- Start popular-post Area -->
+			<section class="popular-post-area pt-100">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="active-popular-post-carusel">
+							{% for f_job in featured %}
+							<div class="single-popular-post d-flex flex-row">
+								<a href="">
+									<!-- <div class="thumb">
+										<img class="img-fluid" src="{% static 'stud_poslovi/img/p1.png' %}" alt="">
+									</div> -->
+									<div class="details">
+										<a href="{% url 'job' f_job.id %}"><h4>{{ f_job.title }}</h4></a>
+										<h6>{{ f_job.location }}</h6>
+										<p>
+											{{ f_job.short|safe }}
+										</p>
+									</div>
+								</a>
+							</div>	
+							{% endfor %}		
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End popular-post Area -->
+			
+			<!-- Start feature-cat Area -->
+			<section class="feature-cat-area pt-100" id="category">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-10">
+							<div class="title text-center">
+								<h1 class="mb-10">Istaknute kategorije poslova</h1>
+								<p>Usudite se sanjariti izvan okvira uvjeta za posao - možda baš ta hrabra prijava preokrene tok vaše budućnosti.</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="{% url 'category' job_category='Racunovodstvo' %}">
+									<img src="{% static 'stud_poslovi/img/o1.png' %}" alt="">
+								</a>
+								<p>Računovodstvo</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="{% url 'category' job_category='Razvoj softvera' %}">
+									<img src="{% static 'stud_poslovi/img/o2.png' %}" alt="">
+								</a>
+								<p>Razvoj softvera</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="{% url 'category' job_category='Tehnologija' %}">
+									<img src="{% static 'stud_poslovi/img/o3.png' %}" alt="">
+								</a>
+								<p>Tehnologija</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="{% url 'category' job_category='Mediji' %}">
+									<img src="{% static 'stud_poslovi/img/o4.png' %}" alt="">
+								</a>
+								<p>Mediji i vijesti</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="{% url 'category' job_category='Medicina' %}">
+									<img src="{% static 'stud_poslovi/img/o5.png' %}" alt="">
+								</a>
+								<p>Medicina</p>
+							</div>
+						</div>
+						<div class="col-lg-2 col-md-4 col-sm-6">
+							<div class="single-fcat">
+								<a href="{% url 'category' job_category='Vlada' %}">
+									<img src="{% static 'stud_poslovi/img/o6.png' %}" alt="">
+								</a>
+								<p>Vlada</p>
+							</div>			
+						</div>																											
+					</div>
+				</div>	
+			</section>
+			<!-- End feature-cat Area -->
+			
+			<!-- Start post Area -->
+			<section class="post-area section-gap">
+				<div class="container">
+					<div class="row justify-content-center d-flex">
+						<div class="col-lg-8 post-list">
+							<ul class="cat-list">
+								<li><a href="{% url 'type' type_job='FULL TIME' %}">Full Time</a></li>
+								<li><a href="{% url 'type' type_job='Praksa' %}">Praksa</a></li>
+								<li><a href="{% url 'type' type_job='Part-time' %}">part Time</a></li>
+							</ul>
+							{% for job in jobs %}
+							<div class="single-post d-flex flex-row">
+								<!-- <div class="thumb" style="margin-right: 10px;">
+									<img src="{{ job.image }}" alt="" style="width: 100px; height: 100px;">
+								</div> -->
+								<div class="details">
+									<div class="title d-flex flex-row justify-content-between" style="margin-right: 5rem">
+										<div class="titles">
+											<a href="{% url 'job' job.id %}"><h4>{{ job.title|safe }}</h4></a>
+											<h6></h6>					
+										</div>
+										<ul class="btns">
+											<!-- <li><a href="#"><span class="lnr lnr-heart"></span></a></li> -->
+											<li><a href="#">Prijava</a></li>
+										</ul>
+									</div>
+									<p>
+										{{ job.short|safe }}
+									</p>
+									<h5>Tip posla: {{ job.type }}</h5>
+									<p class="address"><span class="lnr lnr-map"></span> {{ job.location }} </p>
+									<p class="address"><span class="lnr lnr-database"></span> Po dogovoru</p>
+								</div>
+							</div>
+							{% endfor %}
+							<div class="container-lg mt-5">
+								{% if jobs.has_other_pages %}
+								<ul class="pagination">
+									{% if jobs.has_previous %}
+										<li class="page-item"><a class="page-link" href="?page={{ jobs.previous_page_number }}">&laquo;</a></li>
+									{% else %}
+										<li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+									{% endif %}
+									{% for i in jobs.paginator.page_range %}
+										{% if jobs.number == i %}
+											<li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+										{% else %}
+											<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+										{% endif %}
+									{% endfor %}
+									{% if jobs.has_next %}
+										<li class="page-item"><a class="page-link" href="?page={{ jobs.next_page_number }}">&raquo;</a></li>
+									{% else %}
+										<li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+									{% endif %}
+								</ul>
+								{% endif %}
+							</div>
+						</div>
+						<div class="col-lg-4 sidebar">
+							<div class="single-slidebar">
+								<h4>Lokacija</h4>
+								<ul class="cat-list">
+									<li><a class="justify-content-between d-flex" href="{% url 'location' 'Sarajevo' %}"><p>Sarajevo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Mostar' %}"><p>Mostar</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Tuzla' %}"><p>Tuzla</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Zenica' %}"><p>Zenica</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Banja Luka' %}"><p>Banja Luka</p><span></span></a></li></a></li>
+
+								</ul>
+							</div>
+
+							<div class="single-slidebar">
+								<h4>Kategorije</h4>
+								<ul class="cat-list">
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Tehnologija' %}"><p>Tehnologija</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Novinarstvo' %}"><p>Novinarstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Vlada' %}"><p>Vlada</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Medicina' %}"><p>Medicina</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Ugostiteljstvo' %}"><p>Ugostiteljstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Razvoj softvera' %}"><p>Razvoj softvera</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Računovodstvo' %}"><p>Računovodstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Marketing' %}"><p>Marketing</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Ostalo' %}"><p>Ostalo</p><span></span></a></li>
+								</ul>
+							</div>
+
+							<div class="single-slidebar">
+								<h4>Blogovi sa savjetima</h4>
+								<div class="blog-list">
+									{% for blog in blogs %}
+									<div class="single-blog " style="background:#000 url(static/stud_poslovi/img/blog1.jpg);">
+										<a href="{% url 'blog' blog.id %}"><h4>{{ blog.title }}<br></h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												{{ blog.timestamp }}
+											</p>
+										</div>
+									</div>	
+									{% endfor %}																	
+								</div>
+							</div>							
+
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End post Area -->
+				
+			<!-- Start callto-action Area -->
+			<section class="callto-action-area section-gap" id="join">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content col-lg-9">
+							<div class="title text-center">
+								<h1 class="mb-10 text-white">Nudite studentima priliku za radno iskustvo! Objavite oglas za posao i pojačajte svoj tim!</h1>
+								<p class="text-white">Ako vam je potrebna dodatna radna snaga ili pomoć u obliku studenata za različite poslove, objavite svoj oglas za posao kako biste pružili priliku talentiranim i motiviranim studentima da steknu radno iskustvo i doprinesu vašem timu.</p>
+								<a class="primary-btn" href="#" onclick="openMailApp()">Zakažite sastanak</a>
+							</div>
+						</div>
+					</div>	
+				</div>	
+			</section>
+			<!-- End calto-action Area -->
+
+			<!-- Start download Area -->
+			<section class="download-area section-gap" id="app">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 download-left">
+							<img class="img-fluid" src="{% static 'stud_poslovi/img/d1.png' %}" alt="">
+						</div>
+						<div class="col-lg-6 download-right">
+							<h1>Uskoro <br>
+							Mobilna aplikacija!</h1>
+							<p class="subs">
+								Uskoro mobilna aplikacija - Pratite našu web stranicu i budite u toku sa najnovijim vijestima i informacijama o našoj nadolazećoj mobilnoj aplikaciji. Osigurajte sebi pristup jednostavnom i intuitivnom načinu pristupa našim uslugama putem vašeg mobilnog uređaja.
+							</p>
+					
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End download Area -->
+			<script>
+				function openMailApp() {
+					var email = "adzamija@icloud.com"; 
+					var subject = "Zahtjev za sastanak/objavu"; 
+					var body = "Poštovani,\n\n Hvala vam što ste izrazili interes za objavljivanje vaših poslova na našoj web stranici. Cijenimo vaše povjerenje i želimo vam pomoći da promovirate svoje poslovne aktivnosti na našoj platformi.\n\nKako bismo započeli proces objave vaših poslova, molimo vas da nam pružite sljedeće informacije:\n1.Naziv firme/organizacije: \n2. Opis firme/organizacije: \n3. Lokacija firme/organizacije: \n4. Kontakt osoba (ime i prezime):\n5. E-adresa za kontakt: \n6. Broj telefona: \n7. Web stranica firme/organizacije (ako postoji): \n\nMolimo vas da nam odgovorite s gore navedenim podacima kako bismo mogli pokrenuti proces objave vaših poslova. Nakon što primimo vaše informacije, naš tim će pregledati vaše poslove i stupiti u kontakt s vama kako bismo razgovarali o daljnjim detaljima. \n\nAko imate dodatna pitanja ili trebate više informacija, slobodno nas kontaktirajte putem ovog e-maila ili na broj telefona naveden u potpisu.\n\nUnaprijed hvala na suradnji!"; 
+					var mailtoUrl = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+					window.location.href = mailtoUrl;
+				}
+				</script>
+{% endblock %}

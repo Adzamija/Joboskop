@@ -1,0 +1,291 @@
+{% extends "stud_poslovi/layout.html" %}
+{% load static %}
+{% block body %}
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								O nama				
+							</h1>	
+							<p class="text-white link-nav"><a href="{% url 'index' %}">Naslovna Stranica </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{% url 'about' %}"> O nama</a></p>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+				
+			<!-- Start service Area -->
+			<section class="service-area section-gap" id="service">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="col-md-8 pb-40 header-text">
+							<h1>Zašto odabrati nas</h1>
+							<p>
+								Istražite studentske poslove na našem web pageu - vaš ključ do raznolikih prilika, konkurentne nadoknade i podrške u postizanju vaših profesionalnih ciljeva.
+							</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-user"></span>Naša misija</h4>
+								<p>
+									Pružamo studentima izvanredne poslovne prilike i podršku u ostvarivanju njihovog profesionalnog razvoja, potičući njihov uspjeh u karijeri.
+								</p>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-license"></span>Iskustvo i povjerenje</h4>
+								<p>
+									Sa dugogodišnjim iskustvom u industriji, stekli smo povjerenje studenata i poslodavaca kao pouzdani izvor za posredovanje u studentskim poslovima.
+								</p>								
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-phone"></span>Prilagođene opcije</h4>
+								<p>
+									Prepoznajemo da svaki student ima jedinstvene potrebe i raspored. Zato pružamo fleksibilne radne aranžmane koji vam omogućavaju usklađivanje poslova s vašim obavezama i ciljevima.
+								</p>								
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-rocket"></span>Partnerstva s poslodavcima</h4>
+								<p>
+									Uspostavili smo snažne veze s raznim poslodavcima koji nude studentske poslove, pružajući vam priliku za suradnju s renomiranim kompanijama i stjecanje vrijednog iskustva.
+								</p>				
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-diamond"></span>Širok spektar poslova</h4>
+								<p>
+									Naša platforma nudi raznovrsne studentske poslove u različitim sektorima, od administrativnih i prodajnih do IT i dizajna, pružajući vam različite mogućnosti za vaš profesionalni razvoj.
+								</p>								
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-6">
+							<div class="single-service">
+								<h4><span class="lnr lnr-bubble"></span>Podrška i mentorstvo</h4>
+								<p>
+									Nismo tu samo da vam pružimo poslovne prilike, već i podršku i mentorstvo koje će vam pomoći u vašem profesionalnom i osobnom razvoju, osiguravajući vaš napredak i uspjeh.
+								</p>									
+							</div>
+						</div>						
+					</div>
+				</div>	
+			</section>
+			<!-- End service Area -->						
+
+			<!-- Start feature Area -->
+			<section class="feature-area">
+				<div class="container-fluid">
+					<div class="row justify-content-center align-items-center">
+						<div class="col-lg-3 feat-img no-padding">
+							<img class="img-fluid" src="{% static 'stud_poslovi/img/pages/f1.jpg' %}" alt="">
+						</div>
+						<div class="col-lg-3 no-padding feat-txt">
+							<h1>Ko smo</h1>
+							<p>
+								Mi smo stručni tim posvećen pružanju studentskim poslova. Naša obrazovana ekipa ima za cilj riješiti problem s kojim se studenti često susreću - pronalazak odgovarajućih poslovnih prilika. Kroz našu platformu, omogućavamo studentima jednostavan pristup raznovrsnim poslovima u različitim sektorima. Naša strast je pružiti studentima mogućnost da steknu radno iskustvo, razviju vještine i ostvare uspjeh u svojim karijerama.
+							</p>
+						</div>
+						<div class="col-lg-3 feat-img no-padding">
+							<img class="img-fluid" src="{% static 'stud_poslovi/img/pages/f2.jpg' %}" alt="">							
+						</div>
+						<div class="col-lg-3 no-padding feat-txt">
+							<h1>Šta radimo</h1>
+							<p>
+								Pružamo studentima priliku za zapošljavanje i razvoj karijere kroz raznovrsne studentske poslove. Naša platforma omogućuje pristup poslovima u različitim sektorima, prilagođene opcije rada i podršku u postizanju njihovih profesionalnih ciljeva. Naš cilj je podržati studente u stjecanju vrijednog iskustva i uspješnom ostvarenju njihovih karijernih ambicija.
+							</p>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End feature Area -->
+
+			<!-- Start team Area -->
+			<section class="team-area section-gap" id="team">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-70 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Naš tim</h1>
+								<p>
+									Naš tim je složan i usklađen kako bismo zajedno ostvarili uspjeh u pružanju kvalitetnih studentskih poslova i podrške mladima u ostvarivanju njihovih profesionalnih ciljeva.</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row justify-content-center d-flex align-items-center">
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="{% static 'stud_poslovi/img/pages/t1.jpg' %}" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Mujo Mujić</h4>
+							    <p>CEO</p>									    	
+						    </div>
+						</div>
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="{% static 'stud_poslovi/img/pages/t2.jpg' %}" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Suljo Suljić</h4>
+							    <p>CTO</p>			    	
+						    </div>
+						</div>	
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="{% static 'stud_poslovi/img/pages/t3.jpg' %}" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Alen Sanjinović</h4>
+							    <p>Produkt dizajner</p>			    	
+						    </div>
+						</div>	
+						<div class="col-md-3 single-team">
+						    <div class="thumb">
+						        <img class="img-fluid" src="{% static 'stud_poslovi/img/pages/t4.jpg' %}" alt="">
+						        <div class="align-items-center justify-content-center d-flex">
+									<a href="#"><i class="fa fa-facebook"></i></a>
+									<a href="#"><i class="fa fa-twitter"></i></a>
+									<a href="#"><i class="fa fa-linkedin"></i></a>
+						        </div>
+						    </div>
+						    <div class="meta-text mt-30 text-center">
+							    <h4>Azra Rižoto</h4>
+							    <p>Kontent kreator</p>			    	
+						    </div>
+						</div>																									
+				
+					</div>
+				</div>	
+			</section>
+			<!-- End team Area -->			
+
+
+			<!-- Start callto-action Area -->
+			<section class="callto-action-area section-gap" id="join">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content col-lg-9">
+							<div class="title text-center">
+								<h1 class="mb-10 text-white">Nudite studentima priliku za radno iskustvo! Objavite oglas za posao i pojačajte svoj tim!</h1>
+								<p class="text-white">Ako vam je potrebna dodatna radna snaga ili pomoć u obliku studenata za različite poslove, objavite svoj oglas za posao kako biste pružili priliku talentiranim i motiviranim studentima da steknu radno iskustvo i doprinesu vašem timu.</p>
+								<a class="primary-btn" href="#" onclick="openMailApp()">Zakažite sastanak</a>
+							</div>
+						</div>
+					</div>	
+				</div>	
+			</section>
+			<!-- End calto-action Area -->
+
+			<!-- Start testimonial Area -->
+			<section class="testimonial-area section-gap" id="review">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Utisci naših klijenata</h1>
+								<p>"Naše zadovoljne klijente karakterizira svjedočenje o uspješnom pronalasku kvalitetnih studentskih poslova putem naše platforme, pružajući im mogućnost da steknu dragocjeno iskustvo i ostvare napredak u svojim karijerama."</p>
+							</div>
+						</div>
+					</div>						
+					<div class="row">
+						<div class="active-review-carusel">
+							<div class="single-review">
+								<div class="title d-flex flex-row">
+									<h4>Zejd</h4>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>								
+									</div>
+								</div>
+								<p>
+									Sve preporuke!
+								</p>
+							</div>	
+							<div class="single-review">
+								<div class="title d-flex flex-row">
+									<h4>Mirza</h4>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>								
+									</div>
+								</div>
+								<p>
+									Hvala Joboskop timu
+								</p>
+							</div>	
+							<div class="single-review">
+								<div class="title d-flex flex-row">
+									<h4>Naida</h4>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>								
+									</div>
+								</div>
+								<p>
+									Blogovi su vrhunski
+								</p>
+							</div>	
+							<div class="single-review">
+								<div class="title d-flex flex-row">
+									<h4>Azra</h4>
+									<div class="star">
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star checked"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>
+										<span class="fa fa-star"></span>								
+									</div>
+								</div>
+								<p>
+									Uz vaše savjete sam unaprijedila taktiku za učenje
+								</p>
+							</div>								
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End testimonial Area -->
+			<script>
+				function openMailApp() {
+					var email = "adzamija@icloud.com"; 
+					var subject = "Zahtjev za sastanak/objavu"; 
+					var body = "Poštovani,\n\n Hvala vam što ste izrazili interes za objavljivanje vaših poslova na našoj web stranici. Cijenimo vaše povjerenje i želimo vam pomoći da promovirate svoje poslovne aktivnosti na našoj platformi.\n\nKako bismo započeli proces objave vaših poslova, molimo vas da nam pružite sljedeće informacije:\n1.Naziv firme/organizacije: \n2. Opis firme/organizacije: \n3. Lokacija firme/organizacije: \n4. Kontakt osoba (ime i prezime):\n5. E-adresa za kontakt: \n6. Broj telefona: \n7. Web stranica firme/organizacije (ako postoji): \n\nMolimo vas da nam odgovorite s gore navedenim podacima kako bismo mogli pokrenuti proces objave vaših poslova. Nakon što primimo vaše informacije, naš tim će pregledati vaše poslove i stupiti u kontakt s vama kako bismo razgovarali o daljnjim detaljima. \n\nAko imate dodatna pitanja ili trebate više informacija, slobodno nas kontaktirajte putem ovog e-maila ili na broj telefona naveden u potpisu.\n\nUnaprijed hvala na suradnji!"; 
+					var mailtoUrl = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+					window.location.href = mailtoUrl;
+				}
+				</script>
+{% endblock %}

@@ -1,0 +1,194 @@
+{% extends "stud_poslovi/layout.html" %}
+{% load static %}
+{% block body %}
+    		<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Opis posla				
+							</h1>	
+							<p class="text-white link-nav"><a href="{% url 'index' %}">Naslovna Stranica </a>  <span class="lnr lnr-arrow-right"></span>  <a href="{% url 'category' job_category=job.category %}"> {{ job.category }}</a></p>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+				
+			<!-- Start post Area -->
+			<section class="post-area section-gap">
+				<div class="container">
+					<div class="row justify-content-center d-flex">
+						<div class="col-lg-8 post-list">
+							<div class="single-post d-flex flex-row">
+								<!-- <div class="thumb" style="margin-right: 10px;">
+									<img src="https://i.ibb.co/Jd0BVLT/post.png" alt="">
+								</div> -->
+								<div class="details">
+									<div class="title d-flex flex-row justify-content-between">
+										<div class="titles">
+											<a href="#"><h4>{{ job.title|safe }}</h4></a>
+											<!-- <h6>Premium Labels Limited</h6>					 -->
+										</div>
+										<ul class="btns" style="margin-right: 5rem">
+											<!-- <li><a href="#"><span class="lnr lnr-heart"></span></a></li> -->
+											<li><a href="#">Prijava</a></li>
+										</ul>
+									</div>
+									<p>
+										Objavljeno: {{ job.timestamp }}
+                                        Kontakt: {{ job.contact }}
+									</p>
+									<h5>Tip posla: {{ job.type }}</h5>
+									<p class="address"><span class="lnr lnr-map"></span> {{ job.location }}</p>
+									<p class="address"><span class="lnr lnr-database"></span> Po dogovoru</p>
+								</div>
+							</div>	
+							<div class="single-post job-details">
+								<h4 class="single-title">Koga trazimo</h4>
+								<p>
+                                    {{ job.description_of_the_potential_candidate|safe }}
+								</p>
+							</div>
+							<div class="single-post job-experience">
+								<h4 class="single-title">Uslovi</h4>
+								<ul>
+									<li>
+										<img src="#" alt="">
+										<span>{{ job.requirements|safe }}</span>
+									</li>																										
+								</ul>
+							</div>
+							<div class="single-post job-experience">
+								<h4 class="single-title">Opis posla</h4>
+								<ul>
+									<li>
+										<img src="#" alt="">
+										<span>{{ job.description|safe }}</span>
+									</li>												
+								</ul>
+							</div>	
+							<!-- <div class="single-post job-experience">
+								<h4 class="single-title">Education Requirements</h4>
+								<ul>
+									<li>
+										<img src="img/pages/list.jpg" alt="">
+										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+									</li>
+									<li>
+										<img src="img/pages/list.jpg" alt="">
+										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+									</li>
+									<li>
+										<img src="img/pages/list.jpg" alt="">
+										<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquaut enim ad minim veniam.</span>
+									</li>																										
+								</ul>
+							</div>														 -->
+						</div>
+                        <div class="col-lg-4 sidebar">
+							<div class="single-slidebar">
+								<h4>Lokacija</h4>
+								<ul class="cat-list">
+									<li><a class="justify-content-between d-flex" href="{% url 'location' 'Sarajevo' %}"><p>Sarajevo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Mostar' %}"><p>Mostar</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Tuzla' %}"><p>Tuzla</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Zenica' %}"><p>Zenica</p><span></span></a></li>
+                                    <li><a class="justify-content-between d-flex" href="{% url 'location' job_location='Banja Luka' %}"><p>Banja Luka</p><span></span></a></li></a></li>
+
+								</ul>
+							</div>
+
+							<div class="single-slidebar">
+								<h4>Kategorije</h4>
+								<ul class="cat-list">
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Tehnologija' %}"><p>Tehnologija</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Novinarstvo' %}"><p>Novinarstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Vlada' %}"><p>Vlada</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Medicina' %}"><p>Medicina</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Ugostiteljstvo' %}"><p>Ugostiteljstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Razvoj softvera' %}"><p>Razvoj softvera</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Računovodstvo' %}"><p>Računovodstvo</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Marketing' %}"><p>Marketing</p><span></span></a></li>
+									<li><a class="justify-content-between d-flex" href="{% url 'category' job_category='Ostalo' %}"><p>Ostalo</p><span></span></a></li>
+								</ul>
+							</div>
+							<div class="single-slidebar">
+								<h4>Blogovi sa savjetima za profesionalni razvoj</h4>
+								<div class="blog-list">
+									<div class="single-blog " style="background:#000 url(static/stud_poslovi/img/blog1.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>
+									<div class="single-blog " style="background:#000 url(static/stud_poslovi/img/blog2.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>
+									<div class="single-blog " style="background:#000 url(static/stud_poslovi/img/blog1.jpg);">
+										<a href="single.html"><h4>Home Audio Recording <br>
+										For Everyone</h4></a>
+										<div class="meta justify-content-between d-flex">
+											<p>
+												02 Hours ago
+											</p>
+											<p>
+												<span class="lnr lnr-heart"></span>
+												06
+												 <span class="lnr lnr-bubble"></span>
+												02
+											</p>
+										</div>
+									</div>																		
+								</div>
+							</div>							
+
+						</div>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End post Area -->
+
+
+			<!-- Start callto-action Area -->
+			<section class="callto-action-area section-gap">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content col-lg-9">
+							<div class="title text-center">
+								<h1 class="mb-10 text-white">Join us today without any hesitation</h1>
+								<p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+								<a class="primary-btn" href="#">I am a Candidate</a>
+								<a class="primary-btn" href="#">We are an Employer</a>
+							</div>
+						</div>
+					</div>	
+				</div>	
+			</section>
+			<!-- End calto-action Area -->
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "stud_poslovi/layout.html" %}
+{% block body %}
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Blogovi			
+							</h1>	
+							<p class="text-white link-nav"><a href="{% url 'index' %}">Naslovna Stranica </a>  <span class="lnr lnr-arrow-right"></span>  <a href="blog-home.html"> Blogovi </a></p>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+			
+			<!-- Start blog-posts Area -->
+			<section class="blog-posts-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 post-list blog-post-list">
+							{% for blog in blogs %}
+							<div class="single-post">
+								<img class="img-fluid" src="{{ blog.image }}" alt="">
+								<ul class="tags">
+									<li><a href="#">{{ blog.tag }}</a></li>
+								</ul>
+								<a href="{% url 'blog' blog.id %}">
+									<h1>
+										{{ blog.title }}
+									</h1>
+								</a>
+									<p>
+										{{ blog.intro|safe }}
+									</p>
+							</div>
+							{% endfor %}
+							<div class="container-lg mt-5">
+								{% if blogs.has_other_pages %}
+								<ul class="pagination">
+									{% if blogs.has_previous %}
+										<li class="page-item"><a class="page-link" href="?page={{ blogs.previous_page_number }}">&laquo;</a></li>
+									{% else %}
+										<li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+									{% endif %}
+									{% for i in blogs.paginator.page_range %}
+										{% if blogs.number == i %}
+											<li class="active page-item"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+										{% else %}
+											<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+										{% endif %}
+									{% endfor %}
+									{% if blogs.has_next %}
+										<li class="page-item"><a class="page-link" href="?page={{ blogs.next_page_number }}">&raquo;</a></li>
+									{% else %}
+										<li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+									{% endif %}
+								</ul>
+								{% endif %}
+							</div>
+																		
+						</div>
+						<div class="col-lg-4 sidebar">
+							<div class="single-widget search-widget">
+								<form class="example" action="{% url 'blog-search' %}" style="margin:auto;max-width:300px" method="post">
+									{% csrf_token %}
+								 	<input type="text" placeholder="Pretraži" name="search2">
+								  	<button type="submit"><i class="fa fa-search"></i></button>
+								</form>								
+							</div>
+
+							<div class="single-widget protfolio-widget">
+								<img src="stud_poslovi/img/blog/user2.jpg" alt="">
+								<a href="#"><h4>Elon Musk</h4></a>
+								<p>
+									“You guys are the magicians of the 21st century. Don’t let anything hold you back. Imagination is the limit. Go out there and create some magic.”
+								</p>							
+							</div>
+
+							<div class="single-widget protfolio-widget">
+								<img src="stud_poslovi/img/blog/user2.jpg" alt="">
+								<a href="#"><h4>Steve Jobs</h4></a>
+								<p>
+									“Your time is limited, so don’t waste it living someone else’s life.”
+								</p>							
+							</div>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End blog-posts Area -->
+{% endblock %}
